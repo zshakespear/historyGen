@@ -15,8 +15,12 @@ TO-DO:
 
 import pandas as pd
 import random
+import os
 
-gen = pd.read_csv('c://Users/zacos/Desktop/history.csv')
+wd = os.getcwd()
+wd+='\history.csv'
+
+gen = pd.read_csv(wd)
 randlimit = gen.size - 1
 
 period = input("Enter the number of years for the timeline: ")

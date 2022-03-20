@@ -8,9 +8,6 @@ timelines for fictional settings, particularly for
 roleplaying. 
 
 TO-DO:
-    Allow user to set start year
-    Allow user to set number of years per event
-    Random number of years between events
 """
 
 import pandas as pd
@@ -27,6 +24,8 @@ period = input("Enter the number of years for the timeline: ")
 period = int(period)
 numyears = input("Enter the start year for the timeline: ")
 numyears = int(numyears)
+it = input("Enter the number of years between each event: ")
+it = int(it)
 enddate = numyears + period
 
 eventlist = pd.DataFrame(columns = ['Year', 'Event'])
@@ -35,7 +34,7 @@ while numyears < enddate:
     newevent = pd.DataFrame([[numyears, gen.at[event,'Events']]], 
                             columns = ['Year','Event'])
     eventlist = eventlist.append(newevent)
-    numyears += 1
+    numyears += it
     
 
 with open("genHistory.txt", 'w') as file:
